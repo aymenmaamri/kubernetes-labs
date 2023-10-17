@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: basicpod
+  labels:
+    type: webserver
+spec:
+  containers:
+  - name: webcont
+    image: nginx
+    ports:
+    - containerPort: 80
+      name: default-port
+  - name: logger
+    image:  fluentd
+    ports:
+    - containerPort: 100
+      name: logging-port
